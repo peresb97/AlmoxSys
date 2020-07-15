@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Cadastro de Itens</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref = "itens"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #itemForm="ngForm" novalidate>
+
+    <ion-item>
+      <ion-label position="floating">Descrição: </ion-label>
+      <ion-input #descricao="ngModel" type="text" [(ngModel)]="item.descricao" name="descricao" required minlength="3"></ion-input>
+      <ion-text color="danger" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)">
+        <small>
+          <span *ngIf="descricao.errors.required">
+            A descrição do item é obrigatória!
+          </span>
+          <span *ngIf="descricao.errors.minlength">
+            A descrição do item deve ter no mínimo 3 caracteres!
+          </span>
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Data de Entrada: </ion-label>
+      <ion-input type="date" [(ngModel)]="item.entrada" name="entrada"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Preço: </ion-label>
+      <ion-input #preco="ngModel" type="number" [(ngModel)]="item.preco" name="preco" required min="0" pattern="[0-9]+\.?[0-9]*"></ion-input>
+      <ion-text color="danger" *ngIf="preco.invalid && (preco.dirty || preco.touched)">
+        <small>
+          <span *ngIf="preco.errors.required">
+            O preço é obrigatório!
+          </span>
+          <span *ngIf="preco.errors.pattern">
+            O preço deve ser superior a zero!
+          </span>
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Fornecedor(es):</ion-label>
+      <ion-select [(ngModel)]="item.fornecedores" multiple="true" placeholder="Selecione os fornecedores"
+        [compareWith]="compareWith" name="fornecedor" >
+        <ion-select-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor">
+          {{fornecedor.nome}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button color="secondary" (click)="salvar(item)" [disabled]="itemForm.invalid">
+        <ion-icon name="checkmark"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </form>
+</ion-content>

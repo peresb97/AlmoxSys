@@ -1,0 +1,103 @@
+{
+  "fornecedores": [
+    {
+      "nome": "Fornecedor 3",
+      "cpfCnpj": "01230123012301",
+      "id": 1
+    },
+    {
+      "nome": "Fornecedor 2",
+      "cpfCnpj": "98798798798798",
+      "id": 2
+    }
+  ],
+  "itens": [
+    {
+      "descricao": "Item 1",
+      "fornecedores": [
+        {
+          "nome": "Fornecedor 1",
+          "cpfCnpj": "01230123012301",
+          "id": 1
+        }
+      ],
+      "preco": 150,
+      "entrada": "2020-05-18",
+      "id": 1
+    },
+    {
+      "descricao": "Item 2",
+      "fornecedores": [
+        {
+          "nome": "Fornecedor 2",
+          "cpfCnpj": "98798798798798",
+          "id": 2
+        }
+      ],
+      "preco": 200,
+      "entrada": "2020-05-19",
+      "id": 2
+    },
+    {
+      "descricao": "Item 3",
+      "fornecedores": [
+        {
+          "nome": "Fornecedor 3",
+          "cpfCnpj": "99999999999999",
+          "id": 3
+        }
+      ],
+      "preco": 300,
+      "entrada": "2020-05-20",
+      "id": 3
+    },
+    {
+      "descricao": "Teste",
+      "fornecedores": [
+        {
+          "nome": "Fornecedor 1",
+          "cpfCnpj": "01230123012301",
+          "id": 1
+        },
+        {
+          "nome": "Fornecedor 2",
+          "cpfCnpj": "98798798798798",
+          "id": 2
+        },
+        {
+          "nome": "Fornecedor 3",
+          "cpfCnpj": "99999999999999",
+          "id": 3
+        }
+      ],
+      "preco": 1000,
+      "entrada": "2020-05-26",
+      "id": 4
+    },
+    {
+      "descricao": "Teste 1",
+      "fornecedores": [],
+      "preco": 150.5,
+      "entrada": "2020-05-26",
+      "id": 5
+    },
+    {
+      "descricao": "Teste 5",
+      "fornecedores": [
+        {
+          "nome": "Fornecedor 1",
+          "cpfCnpj": "01230123012301",
+          "id": 1
+        },
+        {
+          "nome": "Fornecedor 2",
+          "cpfCnpj": "98798798798798",
+          "id": 2
+        }
+      ],
+      "preco": 100,
+      "entrada": "2020-07-14",
+      "id": 6
+    }
+  ]
+}

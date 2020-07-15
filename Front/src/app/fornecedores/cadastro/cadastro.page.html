@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref = "fornecedores"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Fornecedores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #fornecedorForm="ngForm" novalidate>
+
+    <ion-item>
+      <ion-label position="floating">Nome *:</ion-label>
+      <ion-input type="text" name="nome" [(ngModel)]="fornecedor.nome" required minlength="5" #campoNome="ngModel" data-mask="(00) 0000-0000" data-mask-selectonfocus="true">
+      </ion-input>
+      <ion-text color="danger" *ngIf="campoNome.invalid && (campoNome.dirty || campoNome.touched)">
+        <small>
+          <span *ngIf="campoNome.errors.required">
+            O nome é obrigatório
+          </span>
+          <span *ngIf="campoNome.errors.minlength">
+            O campo nome deve ter no mínimo 5 caracteres
+          </span>
+          <span *ngIf="campoNome.errors.pattern">
+            O campo nome deve conter apenas letras
+          </span>
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">CNPJ (Somente números) *:</ion-label>
+      <ion-input type="text" name="cpfCnpj" [(ngModel)]="fornecedor.cpfCnpj" required minlength="14" maxlength="14" pattern="[0-9]{14}" #cpfCnpj="ngModel">
+      </ion-input>
+      <ion-text color="danger" *ngIf="cpfCnpj.invalid && (campoNome.dirty || campoNome.touched)">
+        <small>
+          <span *ngIf="cpfCnpj.errors.required">
+            O CNPJ é obrigatório!
+          </span>
+          <span *ngIf="cpfCnpj.errors.minlength">
+            O campo CNPJ deve ter 14 caracteres!
+          </span>
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button color="secondary" (click)="salvar()" [disabled]="fornecedorForm.invalid">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </form>
+</ion-content>

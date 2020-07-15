@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>AlmoxSys!</ion-card-title>
+      <ion-card-subtitle>Seu almoxarifado virtual!</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-icon slot="start" name="list"></ion-icon>
+      <ion-label [routerLink]="['/itens']">Itens</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="people"></ion-icon>
+      <ion-label [routerLink]="['/fornecedores']">Fornecedores</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

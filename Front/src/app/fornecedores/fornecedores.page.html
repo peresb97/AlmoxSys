@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref = "home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Fornecedores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let fornecedor of fornecedores">
+      <ion-item>
+        <ion-label>
+          <h3>
+            Fornecedor: <ion-text color="medium">{{fornecedor.nome}}</ion-text>
+          </h3>
+          <h3>
+            Cnpj: <ion-text color="medium">{{fornecedor.cpfCnpj}}</ion-text>
+          </h3>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="start">
+        <ion-item-option color="secondary" [routerLink]="['/fornecedores', 'editar', fornecedor.id]">
+          <ion-icon name="construct" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="confirmarExclusao(fornecedor)">
+          <ion-icon name="backspace" slot="icon-only" ></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button color="secondary" [routerLink]="['/fornecedores', 'cadastro']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
